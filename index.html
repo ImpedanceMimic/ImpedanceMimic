@@ -24,9 +24,9 @@
         --border: #2e2e2e;
         --text: #f0f0f0;
         --text-muted: #888888;
-        --ours-bg: #1a2540;
-        --ours-border: #2d4a80;
-        --ours-text: #7aaaf5;
+        --ours-bg: #fdecea;
+        --ours-border: #f5b4b0;
+        --ours-text: #E53935;
       }
     }
     :root[data-theme="dark"] {
@@ -35,9 +35,9 @@
       --border: #2e2e2e;
       --text: #f0f0f0;
       --text-muted: #888888;
-      --ours-bg: #1a2540;
-      --ours-border: #2d4a80;
-      --ours-text: #7aaaf5;
+      --ours-bg: #3a1414;
+      --ours-border: #7a2020;
+      --ours-text: #f07070;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -130,7 +130,7 @@
 
 <header>
   <h1>ImpedanceMimic</h1>
-  <p>Supplementary videos for anonymous submission. Three action-space baselines compared on two subjects: held-out trial for subject 10, zero-shot for held-out subject 03. </p>
+  <p>Supplementary videos for ImpedanceMimic submission. Three action-space baselines compared on two subjects: held-out trial for subject 10, zero-shot for held-out subject 03. </p>
 </header>
 
 <!-- ── Section 1: Training subject ───────────────────────── -->
@@ -144,12 +144,12 @@
     <div class="col-header ours">ImpedanceMimic <em>(ours)</em></div>
     <div class="col-header">Torque</div>
 
-    <div class="row-label">Kin</div>
+    <div class="row-label">Kinematic reward</div>
     <video autoplay controls loop muted playsinline src="s10_fixedPD_kin_policy_final_Moore2015_subject10_T062_segment_0_clip_0000.mp4"></video>
     <video autoplay controls loop muted playsinline src="s10_impedance_kin_policy_final_Moore2015_subject10_T062_segment_0_clip_0000.mp4"></video>
     <video autoplay controls loop muted playsinline src="s10_torque_kin_policy_final_Moore2015_subject10_T062_segment_0_clip_0000.mp4"></video>
 
-    <div class="row-label">Force</div>
+    <div class="row-label">Kinematic+Force reward</div>
     <video autoplay controls loop muted playsinline src="s10_fixedPD_force_policy_final_Moore2015_subject10_T062_segment_0_clip_0000.mp4"></video>
     <video autoplay controls loop muted playsinline src="s10_impedance_force_policy_final_Moore2015_subject10_T062_segment_0_clip_0000.mp4"></video>
     <video autoplay controls loop muted playsinline src="s10_torque_force_policy_final_Moore2015_subject10_T062_segment_0_clip_0000.mp4"></video>
@@ -160,8 +160,8 @@
 
 <!-- ── Section 2: Cross-subject transfer ─────────────────── -->
 <section class="section">
-  <div class="section-title">Cross-subject transfer — Subject 3</div>
-  <div class="section-subtitle">Held-out trial T046 · Moore2015 · policy trained on Subject 10</div>
+  <div class="section-title">Subject 03</div>
+  <div class="section-subtitle">Zero-shot on held-out trial of subject 03 · Moore2015 · policy trained on all other subjects.</div>
 
   <div class="grid">
     <div></div>
@@ -169,12 +169,12 @@
     <div class="col-header ours">ImpedanceMimic <em>(ours)</em></div>
     <div class="col-header">Torque</div>
 
-    <div class="row-label">Kin</div>
+    <div class="row-label">Kinematic reward</div>
     <video autoplay controls loop muted playsinline src="los3_fixedPD_kin_policy_final_Moore2015_subject3_T046_part_1_segment_0_clip_0000.mp4"></video>
     <video autoplay controls loop muted playsinline src="los3_impedance_kin_policy_final_Moore2015_subject3_T046_part_1_segment_0_clip_0000.mp4"></video>
     <video autoplay controls loop muted playsinline src="los3_torque_kin_policy_final_Moore2015_subject3_T046_part_1_segment_0_clip_0000.mp4"></video>
 
-    <div class="row-label">Force</div>
+    <div class="row-label">Kinematic+Force reward</div>
     <video autoplay controls loop muted playsinline src="los3_fixedPD_force_policy_final_Moore2015_subject3_T046_part_1_segment_0_clip_0000.mp4"></video>
     <video autoplay controls loop muted playsinline src="los3_impedance_force_policy_final_Moore2015_subject3_T046_part_1_segment_0_clip_0000.mp4"></video>
     <video autoplay controls loop muted playsinline src="los3_torque_force_policy_final_Moore2015_subject3_T046_part_1_segment_0_clip_0000.mp4"></video>
