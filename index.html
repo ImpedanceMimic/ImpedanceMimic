@@ -1,21 +1,185 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>ImpedanceMimic</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ImpedanceMimic — Supplementary Videos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
   <style>
-    body { font-family: sans-serif; max-width: 900px; margin: 40px auto; padding: 0 20px; }
-    video { width: 100%; margin-bottom: 30px; }
+    :root {
+      --bg: #ffffff;
+      --bg-subtle: #f5f5f5;
+      --border: #e2e2e2;
+      --text: #111111;
+      --text-muted: #666666;
+      --ours-bg: #eef3fb;
+      --ours-border: #b8cff0;
+      --ours-text: #1a4a9e;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #141414;
+        --bg-subtle: #1e1e1e;
+        --border: #2e2e2e;
+        --text: #f0f0f0;
+        --text-muted: #888888;
+        --ours-bg: #1a2540;
+        --ours-border: #2d4a80;
+        --ours-text: #7aaaf5;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #141414;
+      --bg-subtle: #1e1e1e;
+      --border: #2e2e2e;
+      --text: #f0f0f0;
+      --text-muted: #888888;
+      --ours-bg: #1a2540;
+      --ours-border: #2d4a80;
+      --ours-text: #7aaaf5;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    header {
+      margin-bottom: 52px;
+    }
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin: 0 0 6px;
+      letter-spacing: -0.01em;
+    }
+    header p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    .section { margin-bottom: 60px; }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0 0 4px;
+    }
+    .section-subtitle {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin: 0 0 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 72px 1fr 1fr 1fr;
+      gap: 10px;
+    }
+
+    .col-header {
+      font-size: 0.78rem;
+      font-weight: 500;
+      text-align: center;
+      padding: 6px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.01em;
+    }
+    .col-header.ours {
+      background: var(--ours-bg);
+      color: var(--ours-text);
+      border: 1px solid var(--ours-border);
+    }
+
+    .row-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 4px;
+    }
+
+    video {
+      width: 100%;
+      display: block;
+      border-radius: 5px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0 0 60px;
+    }
   </style>
 </head>
 <body>
+
+<header>
   <h1>ImpedanceMimic</h1>
-  <p>Supplementary videos for the anonymous submission.</p>
+  <p>Supplementary videos for anonymous submission. Three action-space baselines compared on two subjects: held-out trial for subject 10, zero-shot for held-out subject 03. </p>
+</header>
 
-  <h2>Demo 1</h2>
-  <video controls src="demo1.mp4"></video>
+<!-- ── Section 1: Training subject ───────────────────────── -->
+<section class="section">
+  <div class="section-title">Subject 10</div>
+  <div class="section-subtitle">Held-out trial T062 · Moore2015</div>
 
-  <h2>Demo 2</h2>
-  <video controls src="demo2.mp4"></video>
+  <div class="grid">
+    <div></div>
+    <div class="col-header">Fixed-PD</div>
+    <div class="col-header ours">ImpedanceMimic <em>(ours)</em></div>
+    <div class="col-header">Torque</div>
+
+    <div class="row-label">Kin</div>
+    <video autoplay controls loop muted playsinline src="s10_fixedPD_kin_policy_final_Moore2015_subject10_T062_segment_0_clip_0000.mp4"></video>
+    <video autoplay controls loop muted playsinline src="s10_impedance_kin_policy_final_Moore2015_subject10_T062_segment_0_clip_0000.mp4"></video>
+    <video autoplay controls loop muted playsinline src="s10_torque_kin_policy_final_Moore2015_subject10_T062_segment_0_clip_0000.mp4"></video>
+
+    <div class="row-label">Force</div>
+    <video autoplay controls loop muted playsinline src="s10_fixedPD_force_policy_final_Moore2015_subject10_T062_segment_0_clip_0000.mp4"></video>
+    <video autoplay controls loop muted playsinline src="s10_impedance_force_policy_final_Moore2015_subject10_T062_segment_0_clip_0000.mp4"></video>
+    <video autoplay controls loop muted playsinline src="s10_torque_force_policy_final_Moore2015_subject10_T062_segment_0_clip_0000.mp4"></video>
+  </div>
+</section>
+
+<hr>
+
+<!-- ── Section 2: Cross-subject transfer ─────────────────── -->
+<section class="section">
+  <div class="section-title">Cross-subject transfer — Subject 3</div>
+  <div class="section-subtitle">Held-out trial T046 · Moore2015 · policy trained on Subject 10</div>
+
+  <div class="grid">
+    <div></div>
+    <div class="col-header">Fixed-PD</div>
+    <div class="col-header ours">ImpedanceMimic <em>(ours)</em></div>
+    <div class="col-header">Torque</div>
+
+    <div class="row-label">Kin</div>
+    <video autoplay controls loop muted playsinline src="los3_fixedPD_kin_policy_final_Moore2015_subject3_T046_part_1_segment_0_clip_0000.mp4"></video>
+    <video autoplay controls loop muted playsinline src="los3_impedance_kin_policy_final_Moore2015_subject3_T046_part_1_segment_0_clip_0000.mp4"></video>
+    <video autoplay controls loop muted playsinline src="los3_torque_kin_policy_final_Moore2015_subject3_T046_part_1_segment_0_clip_0000.mp4"></video>
+
+    <div class="row-label">Force</div>
+    <video autoplay controls loop muted playsinline src="los3_fixedPD_force_policy_final_Moore2015_subject3_T046_part_1_segment_0_clip_0000.mp4"></video>
+    <video autoplay controls loop muted playsinline src="los3_impedance_force_policy_final_Moore2015_subject3_T046_part_1_segment_0_clip_0000.mp4"></video>
+    <video autoplay controls loop muted playsinline src="los3_torque_force_policy_final_Moore2015_subject3_T046_part_1_segment_0_clip_0000.mp4"></video>
+  </div>
+</section>
+
 </body>
 </html>
