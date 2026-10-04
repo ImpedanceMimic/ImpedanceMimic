@@ -3,184 +3,413 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ImpedanceMimic — Supplementary Videos</title>
+  <title>ImpedanceMimic</title>
+  <meta name="description" content="ImpedanceMimic: Learned Impedance as Action Space for Force-Accurate Motion Imitation.">
+  <!-- Remove after the review period so search engines can index the page. -->
+  <meta name="robots" content="noindex, nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@700&display=swap">
   <style>
     :root {
-  --bg: #ffffff;
-  --bg-subtle: #f5f5f5;
-  --border: #e2e2e2;
-  --text: #111111;
-  --text-muted: #666666;
-  --ours-bg: #fdecea;
-  --ours-border: #f5b4b0;
-  --ours-text: #E53935;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #141414;
-    --bg-subtle: #1e1e1e;
-    --border: #2e2e2e;
-    --text: #f0f0f0;
-    --text-muted: #888888;
-    --ours-bg: #3a1414;
-    --ours-border: #7a2020;
-    --ours-text: #f07070;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #141414;
-  --bg-subtle: #1e1e1e;
-  --border: #2e2e2e;
-  --text: #f0f0f0;
-  --text-muted: #888888;
-  --ours-bg: #3a1414;
-  --ours-border: #7a2020;
-  --ours-text: #f07070;
-}
+      --bg: #ffffff;
+      --bg-subtle: #f5f5f6;
+      --border: #e3e3e6;
+      --text: #111113;
+      --text-muted: #606169;
+      --ours: #E53935;
+      --fpd: #41b4ee;
+      --trq: #949cac;
+      --shadow: 0 1px 2px rgba(0,0,0,.06), 0 2px 8px rgba(0,0,0,.04);
+      --act-mix: black;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #131315;
+        --bg-subtle: #1d1d20;
+        --border: #2e2e33;
+        --text: #f1f1f3;
+        --text-muted: #9a9ba3;
+        --ours: #f0625f;
+        --shadow: none;
+        --act-mix: white;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #131315;
+      --bg-subtle: #1d1d20;
+      --border: #2e2e33;
+      --text: #f1f1f3;
+      --text-muted: #9a9ba3;
+      --ours: #f0625f;
+      --shadow: none;
+      --act-mix: white;
+    }
 
     *, *::before, *::after { box-sizing: border-box; }
-
-    html { font-size: 24px; }
+    html { font-size: 17px; -webkit-text-size-adjust: 100%; }
     body {
-      font-family: 'Inter', sans-serif;
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.55;
       background: var(--bg);
       color: var(--text);
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 48px 24px 80px;
     }
+    main { padding: 56px 16px 72px; }
+    .wrap { max-width: 1180px; margin-left: auto; margin-right: auto; }
 
-    header {
-      margin-bottom: 52px;
-    }
-    header h1 {
-      font-size: 1.6rem;
-      font-weight: 600;
-      margin: 0 0 6px;
-      letter-spacing: -0.01em;
-    }
-    header p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      margin: 0;
-    }
-
-    .section { margin-bottom: 60px; }
-
-    .section-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin: 0 0 4px;
-    }
-    .section-subtitle {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      margin: 0 0 20px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 72px 1fr 1fr 1fr;
-      gap: 10px;
-    }
-
-    .col-header {
-      font-size: 0.78rem;
-      font-weight: 500;
-      text-align: center;
-      padding: 6px 8px;
-      border-radius: 4px;
-      letter-spacing: 0.01em;
-    }
-    .col-header.ours {
-      background: var(--ours-bg);
-      color: var(--ours-text);
-      border: 1px solid var(--ours-border);
-    }
-
-    .row-label {
-      font-size: 0.72rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      padding-right: 4px;
-    }
-
-    video {
-      width: 100%;
-      display: block;
-      border-radius: 5px;
-      background: var(--bg-subtle);
+    /* ── Header ─────────────────────────────────────────── */
+    header { text-align: center; margin-bottom: 40px; }
+    h1 { margin: 0 0 18px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; }
+    h1 .name { display: block; font-size: 2.6rem; color: var(--ours); }
+    h1 .rest { display: block; font-size: 1.45rem; font-weight: 600; margin-top: 6px; }
+    .authors { margin: 0 0 14px; color: var(--text-muted); font-size: 1rem; }
+    .status { margin: 0 0 24px; }
+    .status span {
+      display: inline-block;
+      padding: 5px 16px;
+      border-radius: 999px;
       border: 1px solid var(--border);
+      background: var(--bg-subtle);
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    .links { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+    .link-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 18px;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--ours) 11%, transparent);
+      border: 1px solid color-mix(in srgb, var(--ours) 30%, transparent);
+      color: var(--ours);
+      font-size: 0.92rem; font-weight: 600; text-decoration: none;
+    }
+    .link-btn svg { width: 17px; height: 17px; flex: none; }
+    .link-btn[aria-disabled="true"] { cursor: default; }
+    .link-btn .soon { font-size: 0.74rem; font-weight: 500; opacity: .85; }
+
+    /* ── Sections ───────────────────────────────────────── */
+    section { margin-top: 64px; }
+    h2 { font-size: 1.45rem; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 18px; text-align: center; }
+    .abstract { font-size: 1rem; margin: 24px 0 0; }
+
+    /* ── Media frames ───────────────────────────────────── */
+    .media-frame {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .media-frame video { display: block; width: 100%; height: auto; }
+    .media-frame .placeholder { display: none; }
+    .media-frame.missing { aspect-ratio: 16 / 9; background: var(--bg-subtle); }
+    .media-frame.missing video { display: none; }
+    .media-frame.missing .placeholder {
+      display: flex; align-items: center; justify-content: center;
+      position: absolute; inset: 0;
+      color: var(--text-muted); font-weight: 500;
     }
 
-    hr {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 0 0 60px;
+    /* ── Mode switch + legends ──────────────────────────── */
+    .seg {
+      display: flex; width: fit-content; margin: 0 auto 16px;
+      padding: 4px; gap: 4px;
+      border-radius: 999px; background: var(--bg-subtle); border: 1px solid var(--border);
+    }
+    .seg button {
+      font: inherit; font-size: 0.92rem; font-weight: 600;
+      padding: 8px 18px; border: 0; border-radius: 999px;
+      background: transparent; color: var(--text-muted); cursor: pointer;
+    }
+    .seg button[aria-selected="true"] { background: var(--bg); color: var(--text); box-shadow: var(--shadow); }
+    .seg button:focus-visible { outline: 2px solid var(--ours); outline-offset: 2px; }
+
+    .legend-slot { display: grid; margin-bottom: 18px; font-size: 0.88rem; color: var(--text-muted); }
+    .legend-slot > [data-legend] { grid-area: 1 / 1; }
+    .legend-slot > .off { visibility: hidden; }
+    .guide { display: grid; grid-template-columns: 1fr 1.15fr 1fr; gap: 24px; }
+    .guide > div { display: flex; gap: 10px; align-items: center; }
+    .guide p { margin: 0; }
+    .part { flex: none; width: 38px; height: 18px; }
+    .part rect { fill: none; stroke: var(--text-muted); stroke-width: 1; }
+    .part rect.on { fill: var(--ours); stroke: var(--ours); }
+    .k { font-style: italic; font-family: 'Times New Roman', serif; font-size: 1.08em; }
+    .methods { display: flex; justify-content: center; align-self: center; flex-wrap: wrap; gap: 4px 18px; font-weight: 600; font-size: 0.95rem; color: var(--text); }
+    .methods span::before {
+      content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 3px;
+      margin-right: 7px; background: var(--c);
+    }
+
+    /* ── Activity grid (Fig. 1 order) ───────────────────── */
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 16px; }
+    .tile { margin: 0; }
+    .tile-media {
+      display: block; width: 100%; padding: 0; cursor: zoom-in;
+      font: inherit; color: inherit;
+    }
+    .grid[data-mode="timeseries"] .tile-media { aspect-ratio: 1520 / 720; }
+    .grid[data-mode="comparison"] .tile-media { aspect-ratio: 1920 / 720; }
+    .tile-media video { width: 100%; height: 100%; object-fit: contain; background: #fff; }
+    .tile-media:focus-visible { outline: 2px solid var(--ours); outline-offset: 2px; }
+    .tile figcaption { margin-top: 7px; font-size: 0.88rem; color: var(--text-muted); }
+    .cap-main { display: flex; align-items: baseline; gap: 10px; }
+    .cap-meta { font-size: 0.8rem; }
+    .enlarge {
+      margin-left: auto; align-self: center;
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 2px 10px; border: 1px solid var(--border); border-radius: 999px;
+      background: none; color: var(--text-muted); font: inherit; font-size: 0.78rem; cursor: zoom-in;
+    }
+    .enlarge svg { width: 12px; height: 12px; }
+    .enlarge:hover { color: var(--text); border-color: var(--text-muted); }
+    .enlarge:focus-visible { outline: 2px solid var(--ours); outline-offset: 2px; }
+    .act {
+      font-family: 'Courier Prime', 'Courier New', monospace; font-weight: 700; font-size: 1.08rem;
+      color: color-mix(in srgb, var(--act) 82%, var(--act-mix));
+    }
+
+    /* ── Figure ─────────────────────────────────────────── */
+    .paper-fig { margin: 0; }
+    .paper-fig a { display: block; background: #fff; border-radius: 10px; border: 1px solid var(--border); padding: 12px; box-shadow: var(--shadow); }
+    .paper-fig img { display: block; width: 100%; height: auto; }
+    .paper-fig figcaption { margin: 16px 0 0; font-size: 0.95rem; }
+    .paper-fig figcaption b { font-weight: 600; }
+
+    /* ── Lightbox ───────────────────────────────────────── */
+    dialog#lightbox {
+      padding: 0; border: 0; background: transparent; max-width: 96vw; max-height: 96vh; overflow: visible;
+    }
+    dialog#lightbox::backdrop { background: rgba(8,8,10,.82); }
+    #lightbox video { display: block; width: min(94vw, 1700px); max-height: 84vh; background: #fff; border-radius: 8px; }
+    #lightbox .lb-caption { color: #e8e8ea; text-align: center; font-size: 0.92rem; margin: 10px 0 0; }
+    #lightbox .lb-close {
+      position: absolute; top: -40px; right: 0;
+      width: 32px; height: 32px; border-radius: 50%; border: 0; cursor: pointer;
+      background: rgba(255,255,255,.14); color: #fff; font-size: 20px; line-height: 32px;
+    }
+
+    footer { margin-top: 72px; padding-top: 22px; border-top: 1px solid var(--border); text-align: center; font-size: 0.85rem; color: var(--text-muted); }
+
+    @media (min-width: 1000px) {
+      h1 .rest { white-space: nowrap; }
+    }
+    @media (max-width: 760px) {
+      main { padding-top: 36px; }
+      h1 .name { font-size: 2rem; }
+      h1 .rest { font-size: 1.15rem; }
+      .grid { grid-template-columns: 1fr; }
+      .guide { grid-template-columns: 1fr; gap: 10px; }
+      .seg { width: 100%; }
+      .seg button { flex: 1; padding: 8px 10px; }
     }
   </style>
 </head>
 <body>
+<main>
 
-<header>
-  <h1>ImpedanceMimic</h1>
-  <p>Supplementary videos for ImpedanceMimic submission. Three action-space baselines compared on two subjects: held-out trial for subject 10, zero-shot for held-out subject 03. Ground Truth is the ghost humanoid with blue ground reaction forces.</p>
+<header class="wrap">
+  <h1>
+    <span class="name">ImpedanceMimic</span>
+    <span class="rest">Learned Impedance as Action Space for Force-Accurate Motion Imitation</span>
+  </h1>
+  <p class="authors">Anonymous Authors</p>
+  <p class="status"><span>Full paper under review. Earlier version accepted at NeurIPS 2026 PhysWorldAI and Sim2Science Workshops.</span></p>
+  <nav class="links" aria-label="Resources">
+    <span class="link-btn" aria-disabled="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>
+      Paper <span class="soon">coming soon!</span>
+    </span>
+    <span class="link-btn" aria-disabled="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+      Code <span class="soon">coming soon!</span>
+    </span>
+    <span class="link-btn" aria-disabled="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5M12 13v8"/></svg>
+      Checkpoints <span class="soon">coming soon!</span>
+    </span>
+  </nav>
 </header>
 
-<!-- ── Section 1: Training subject ───────────────────────── -->
-<section class="section">
-  <div class="section-title">Subject 10</div>
-  <div class="section-subtitle">Held-out trial T062 · Moore2015</div>
-
-  <div class="grid">
-    <div></div>
-    <div class="col-header">Fixed-PD</div>
-    <div class="col-header ours">ImpedanceMimic <em>(ours)</em></div>
-    <div class="col-header">Torque</div>
-
-    <div class="row-label">Kinematic reward</div>
-    <video autoplay controls loop muted playsinline src="s10_fixedPD_kin_policy_final_Moore2015_subject10_T062_segment_0_clip_0000.mp4"></video>
-    <video autoplay controls loop muted playsinline src="s10_impedance_kin_policy_final_Moore2015_subject10_T062_segment_0_clip_0000.mp4"></video>
-    <video autoplay controls loop muted playsinline src="s10_torque_kin_policy_final_Moore2015_subject10_T062_segment_0_clip_0000.mp4"></video>
-
-    <div class="row-label">Kinematic+Force reward</div>
-    <video autoplay controls loop muted playsinline src="s10_fixedPD_force_policy_final_Moore2015_subject10_T062_segment_0_clip_0000.mp4"></video>
-    <video autoplay controls loop muted playsinline src="s10_impedance_force_policy_final_Moore2015_subject10_T062_segment_0_clip_0000.mp4"></video>
-    <video autoplay controls loop muted playsinline src="s10_torque_force_policy_final_Moore2015_subject10_T062_segment_0_clip_0000.mp4"></video>
+<!-- ── Main video + abstract ───────────────────────────── -->
+<section class="wrap" style="margin-top: 0">
+  <div class="media-frame" id="main-video">
+    <video src="assets/videos/main.mp4" autoplay muted loop playsinline controls preload="auto"
+           onerror="this.parentElement.classList.add('missing')"></video>
+    <div class="placeholder">Main video coming soon</div>
   </div>
+  <p class="abstract">
+    Recovering the forces behind a motion is ill-posed: different controllers can reproduce the same movement while exerting different contact forces.
+    Most motion-imitation methods drive the simulated humanoid with fixed-gain proportional–derivative (PD) controllers, which we show enforce a compromise between tracking the motion and the resulting forces.
+    We present <b>ImpedanceMimic</b>, a motion-imitation reinforcement-learning policy that outputs per-joint stiffness, damping and position setpoints, supervised by force measurements withheld at inference.
+    Across 129 participants, nine datasets and six diverse activities from lunges to jumping, ImpedanceMimic outperforms fixed-gain PD, direct torque and muscle actuation on kinematic and force tracking, and approaches a dedicated motion-to-force regressor.
+    With gains learned as multiples of inertia-scaled priors, our policy is the first to drive subject-scaled biomechanical models for every participant, without anthropometric input, and transfers zero-shot to new human and robot bodies.
+    The learned impedance is an activity-structured, morphology-invariant encoding of motor state that generalizes to activities withheld from training.
+    It occupies a low-dimensional, interpretable space in which stiffness scales with load and damping anticipates unloading.
+  </p>
 </section>
 
-<hr>
+<!-- ── Activities ──────────────────────────────────────── -->
+<section class="wrap" id="activities">
+  <h2>One policy, six activities, many bodies</h2>
 
-<!-- ── Section 2: Cross-subject transfer ─────────────────── -->
-<section class="section">
-  <div class="section-title">Subject 03</div>
-  <div class="section-subtitle">Zero-shot on held-out trial of subject 03 · Moore2015 · policy trained on all other subjects.</div>
-
-  <div class="grid">
-    <div></div>
-    <div class="col-header">Fixed-PD</div>
-    <div class="col-header ours">ImpedanceMimic <em>(ours)</em></div>
-    <div class="col-header">Torque</div>
-
-    <div class="row-label">Kinematic reward</div>
-    <video autoplay controls loop muted playsinline src="los3_fixedPD_kin_policy_final_Moore2015_subject3_T046_part_1_segment_0_clip_0000.mp4"></video>
-    <video autoplay controls loop muted playsinline src="los3_impedance_kin_policy_final_Moore2015_subject3_T046_part_1_segment_0_clip_0000.mp4"></video>
-    <video autoplay controls loop muted playsinline src="los3_torque_kin_policy_final_Moore2015_subject3_T046_part_1_segment_0_clip_0000.mp4"></video>
-
-    <div class="row-label">Kinematic+Force reward</div>
-    <video autoplay controls loop muted playsinline src="los3_fixedPD_force_policy_final_Moore2015_subject3_T046_part_1_segment_0_clip_0000.mp4"></video>
-    <video autoplay controls loop muted playsinline src="los3_impedance_force_policy_final_Moore2015_subject3_T046_part_1_segment_0_clip_0000.mp4"></video>
-    <video autoplay controls loop muted playsinline src="los3_torque_force_policy_final_Moore2015_subject3_T046_part_1_segment_0_clip_0000.mp4"></video>
+  <div class="seg" role="tablist" aria-label="Video type">
+    <button role="tab" id="tab-timeseries" aria-selected="true"  aria-controls="activity-grid" data-mode="timeseries">ImpedanceMimic</button>
+    <button role="tab" id="tab-comparison" aria-selected="false" aria-controls="activity-grid" data-mode="comparison">vs. baselines</button>
   </div>
+
+  <div class="legend-slot">
+  <div data-legend="timeseries" class="guide">
+    <div>
+      <svg class="part" viewBox="0 0 38 18" aria-hidden="true"><rect class="on" x=".5" y=".5" width="7" height="17" rx="1.5"/><rect x="9.5" y=".5" width="19" height="17" rx="1.5"/><rect x="30.5" y=".5" width="7" height="17" rx="1.5"/></svg>
+      <p>Joint angles and vertical force: reference (black) vs. ImpedanceMimic (red).</p>
+    </div>
+    <div>
+      <svg class="part" viewBox="0 0 38 18" aria-hidden="true"><rect x=".5" y=".5" width="7" height="17" rx="1.5"/><rect class="on" x="9.5" y=".5" width="19" height="17" rx="1.5"/><rect x="30.5" y=".5" width="7" height="17" rx="1.5"/></svg>
+      <p>ImpedanceMimic (bone) on the reference (ghost). Forces: measured (black), simulated (red).</p>
+    </div>
+    <div>
+      <svg class="part" viewBox="0 0 38 18" aria-hidden="true"><rect x=".5" y=".5" width="7" height="17" rx="1.5"/><rect x="9.5" y=".5" width="19" height="17" rx="1.5"/><rect class="on" x="30.5" y=".5" width="7" height="17" rx="1.5"/></svg>
+      <p>Learned stiffness <span class="k">k<sup>p</sup></span> vs. damping <span class="k">k<sup>d</sup></span> per joint; black ◆ = nominal gains.</p>
+    </div>
+  </div>
+  <div data-legend="comparison" class="methods off" aria-hidden="true">
+    <span style="--c: var(--fpd)">Fixed-PD</span>
+    <span style="--c: var(--ours)">ImpedanceMimic</span>
+    <span style="--c: var(--trq)">Torque</span>
+  </div>
+  </div>
+
+  <div class="grid" id="activity-grid" role="tabpanel" aria-labelledby="tab-timeseries" data-mode="timeseries"></div>
 </section>
 
+<!-- ── Method ──────────────────────────────────────────── -->
+<section class="wrap" id="method">
+  <h2>Method</h2>
+  <figure class="paper-fig">
+    <a href="assets/fig1_overview.png" target="_blank" rel="noopener">
+      <img src="assets/fig1_overview.png" width="2400" height="675" loading="lazy"
+           alt="Overview: a motion-force corpus of six activities feeds a policy that outputs stiffness, damping and setpoint changes; inertia-scaled gains drive a PD controller in a physics simulator, rewarded on simulated motion and contact forces.">
+    </a>
+    <figcaption>
+      <b>ImpedanceMimic learns joint impedance to reproduce measured contact forces.</b>
+      From a reference motion and a frozen kinematics-to-GRF estimate, the policy modulates inertia-scaled nominal gains into time-varying stiffness and damping per joint, tracing a trajectory characteristic of each task.
+      These gains set a PD law whose torques drive a subject-scaled model in a physics simulator, producing contact forces.
+      Dashed lines mark training-only signals, withheld at inference.
+    </figcaption>
+  </figure>
+</section>
+
+<footer class="wrap">
+  Full paper under review. Code and checkpoints coming soon.
+</footer>
+
+</main>
+
+<dialog id="lightbox" aria-label="Enlarged video">
+  <button class="lb-close" type="button" aria-label="Close">&times;</button>
+  <video controls loop muted playsinline></video>
+  <p class="lb-caption"></p>
+</dialog>
+
+<script>
+  // Figure 1 order, row-major: run | lateral / walk | flexion / jump | stand
+  const ACTIVITIES = [
+    { id: 'run',     color: '#D81B60', desc: 'Treadmill running', who: 'Male, 69 kg',   data: 'Tan et al., 2022' },
+    { id: 'lateral', color: '#43A047', desc: 'Side shuffle',      who: 'Female, 64 kg', data: 'Scherpereel et al., 2023' },
+    { id: 'walk',    color: '#1E88E5', desc: 'Treadmill walking', who: 'Female, 64 kg', data: 'Moore et al., 2015' },
+    { id: 'flexion', color: '#7B1FA2', desc: 'Lunge',             who: 'Male, 88 kg',   data: 'Scherpereel et al., 2023' },
+    { id: 'jump',    color: '#FF9800', desc: 'Vertical jumps',    who: 'Male, 88 kg',   data: 'Scherpereel et al., 2023' },
+    { id: 'stand',   color: '#6D4C41', desc: 'Quiet standing',    who: 'Male, 67 kg',   data: 'Han et al., 2023' },
+  ];
+  const MODE_LABEL = { timeseries: 'ImpedanceMimic', comparison: 'Fixed-PD vs. ImpedanceMimic vs. Torque' };
+  const EXPAND_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>';
+
+  const grid = document.getElementById('activity-grid');
+  const lightbox = document.getElementById('lightbox');
+  const lbVideo = lightbox.querySelector('video');
+  const mainVideo = document.querySelector('#main-video video');
+  let mode = 'timeseries';
+
+  const src  = (a) => `assets/videos/${mode}/${a.id}.mp4`;
+  const play = (v) => v.play().catch(() => {});
+
+  const tiles = ACTIVITIES.map((a) => {
+    const fig = document.createElement('figure');
+    fig.className = 'tile';
+    fig.style.setProperty('--act', a.color);
+    fig.innerHTML = `
+      <button class="tile-media media-frame" type="button" aria-label="Enlarge ${a.id} video">
+        <video autoplay muted loop playsinline preload="none"></video>
+      </button>
+      <figcaption>
+        <div class="cap-main">
+          <span class="act">${a.id}</span><span>${a.desc}</span>
+          <button class="enlarge" type="button" aria-label="Enlarge ${a.id} video">${EXPAND_ICON}Enlarge</button>
+        </div>
+        <div class="cap-meta">Held-out clip · ${a.who} · ${a.data}</div>
+      </figcaption>`;
+    grid.appendChild(fig);
+    const tile = { a, video: fig.querySelector('video') };
+    fig._tile = tile;
+    fig.querySelectorAll('button').forEach((b) => b.addEventListener('click', () => openLightbox(tile)));
+    return tile;
+  });
+
+  // Only the hero video loads up front. Each tile starts downloading ~600px before it
+  // reaches the viewport, so it is already playing by the time it is scrolled to, and
+  // pauses again once it is well past — the page never holds 7 videos in flight at once.
+  const near = new Set();
+  function load(t) {
+    const want = src(t.a);
+    if (t.video.getAttribute('src') !== want) t.video.src = want;
+    play(t.video);
+  }
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      const t = e.target._tile;
+      if (e.isIntersecting) { near.add(t); load(t); }
+      else { near.delete(t); t.video.pause(); }
+    }
+  }, { rootMargin: '600px 0px' });
+  tiles.forEach((t, i) => io.observe(grid.children[i]));
+
+  function setMode(m) {
+    if (m === mode) return;
+    mode = m;
+    grid.dataset.mode = m;
+    grid.setAttribute('aria-labelledby', `tab-${m}`);
+    document.querySelectorAll('.seg button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.mode === m)));
+    document.querySelectorAll('[data-legend]').forEach((el) => {
+      const off = el.dataset.legend !== m;
+      el.classList.toggle('off', off);
+      el.setAttribute('aria-hidden', String(off));
+    });
+    for (const t of near) load(t);
+  }
+  document.querySelectorAll('.seg button').forEach((b) => b.addEventListener('click', () => setMode(b.dataset.mode)));
+
+  // Lightbox: the page's videos pause underneath it and resume on close.
+  function openLightbox(t) {
+    for (const x of tiles) x.video.pause();
+    mainVideo.pause();
+    const start = t.video.currentTime || 0;
+    lbVideo.src = src(t.a);
+    lbVideo.addEventListener('loadedmetadata', () => { lbVideo.currentTime = start; }, { once: true });
+    lightbox.querySelector('.lb-caption').textContent = `${t.a.id} · ${t.a.desc} · held-out clip · ${t.a.who} · ${t.a.data} · ${MODE_LABEL[mode]}`;
+    lightbox.showModal();
+    play(lbVideo);
+  }
+  lightbox.querySelector('.lb-close').addEventListener('click', () => lightbox.close());
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.close(); });
+  lightbox.addEventListener('close', () => {
+    lbVideo.pause();
+    lbVideo.removeAttribute('src');
+    lbVideo.load();
+    for (const t of near) play(t.video);
+    play(mainVideo);
+  });
+</script>
 </body>
 </html>
